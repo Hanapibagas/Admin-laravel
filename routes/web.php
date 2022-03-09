@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,4 @@ Route::put('books/table/{id}', [BookController::class, 'update'])->name('update-
 Route::delete('books/table/{id}', [BookController::class, 'delete'])->name('delete-book');
 
 // rote member
+Route::get('member', [MemberController::class, 'tambah']);
