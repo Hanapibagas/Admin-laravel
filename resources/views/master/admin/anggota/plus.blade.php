@@ -48,9 +48,9 @@
     </div>
     <div class="form-group">
         <label for="floatingInput">Foto</label>
-        <input type="file" class="form-control @error('cover') is-invalid @enderror" id="floatingInput"
-            placeholder="Foto" name="cover">
-        @error('cover')
+        <input type="file" class="form-control @error('image') is-invalid @enderror" id="floatingInput"
+            placeholder="Foto" name="image">
+        @error('image')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>

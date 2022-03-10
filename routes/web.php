@@ -29,3 +29,4 @@ Route::delete('books/table/{id}', [BookController::class, 'delete'])->name('dele
 
 // rote member
 Route::get('member', [MemberController::class, 'tambah']);
+Route::post('member', [MemberController::class, 'store']);
