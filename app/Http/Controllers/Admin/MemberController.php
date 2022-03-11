@@ -15,6 +15,13 @@ class MemberController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'member_code' => 'required|string',
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'gender' => 'required|string',
+            'image' => 'required',
+        ]);
         // return response()->json($request);
         if ($request->file('image')) {
             $file = $request->file('image')->store('gambar', 'public');
@@ -27,5 +34,12 @@ class MemberController extends Controller
             "gender" => $request->input('gender'),
             "image" => $file
         ]);
+        return redirect()->route('index-member');
+    }
+
+    public function tampilan()
+    {
+        $members = Member::all();
+        return view('master.admin.anggota.table', compact('members'));
     }
 }

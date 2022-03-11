@@ -1,7 +1,7 @@
 @extends('master.index')
 
 @section('content')
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="{{ route('store-member') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="floatingInput">Kode Member</label>

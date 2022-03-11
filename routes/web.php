@@ -28,5 +28,6 @@ Route::put('books/table/{id}', [BookController::class, 'update'])->name('update-
 Route::delete('books/table/{id}', [BookController::class, 'delete'])->name('delete-book');
 
 // rote member
-Route::get('member', [MemberController::class, 'tambah']);
-Route::post('member', [MemberController::class, 'store']);
+Route::get('member', [MemberController::class, 'tambah'])->name('create-member');
+Route::post('member', [MemberController::class, 'store'])->name('store-member');
+Route::get('member/table', [MemberController::class, 'tampilan'])->name('index-member');

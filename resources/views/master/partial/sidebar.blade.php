@@ -31,7 +31,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a href="#" class="nav-link">
+        <a href="{{ route('index-member') }}" class="nav-link">
             <i class="fas fa-user"></i>
             <span>Anggota</span>
         </a>
