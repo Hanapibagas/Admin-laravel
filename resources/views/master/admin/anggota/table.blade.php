@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($members as $key => $item )
+        @foreach ($member as $key => $item )
         <tr>
             <th scope="row">{{ $key+1 }}</th>
             <td>{{ $item->member_code }}</td>
@@ -27,7 +27,7 @@
             <td><img width="50px" height="70px" src="{{ asset ('storage/'.$item->image) }}" alt="fesfh"></td>
             <td>
                 <a href="{{ route('edit-member', $item->id) }}" class="btn btn-primary">Edit</a>
-                <form style="display: inline" action="{{ route('delete-book', $item->id) }}" method="POST">
+                <form style="display: inline" action="{{ route('delete-member', $item->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                     <button class="btn btn-danger">Hapus</button>

@@ -1,58 +1,65 @@
 @extends('master.index')
 
 @section('content')
-<form action="{{ route('update-book', $book->id) }}" method="POST" enctype="multipart/form-data">
+
+<form action="{{ route('update-member', $member->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group">
-        <label for="floatingInput">Kode Buku</label>
-        <input value="{{ $book->book_code }}" type="text" class="form-control @error('book_code') is-invalid @enderror" id="floatingInput" placeholder="Book_Code" name="book_code">
-        @error('book_code')
+        <label for="floatingInput">Kode Member</label>
+        <input type="text" class="form-control @error('member_code') is-invalid @enderror" id="floatingInput"
+            placeholder="Member_Code" name="member_code" value="{{ $member->member_code }}">
+            @error('member_code')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="floatingInput">Judul</label>
-        <input value="{{ $book->tittle }}" type="text" class="form-control @error('tittle') is-invalid @enderror" id="floatingInput" placeholder="Tittle" name="tittle">
-        @error('tittle')
+        <label for="floatingInput">Nama</label>
+        <input type="text" class="form-control @error('name') is-invalid @enderror" id="floatingInput"
+            placeholder="Name" name="name" value="{{ $member->name }}">
+            @error('name')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="floatingInput">Penerbit</label>
-        <input value="{{ $book->publisher }}"  type="text" class="form-control @error('publisher') is-invalid @enderror" id="floatingInput" placeholder="Publisher" name="publisher">
-        @error('publisher')
+        <label for="floatingInput">Alamat</label>
+        <input type="text" class="form-control  @error('address') is-invalid @enderror" id="floatingInput"
+            placeholder="Alamat" name="address" value="{{ $member->address }}">
+            @error('address')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="floatingInput">Tahun Penerbit</label>
-        <input value="{{ $book->publisher_year	 }}" type="date" class="form-control @error('publisher_year') is-invalid @enderror" id="floatingInput" placeholder="Publication Year" name="publisher_year">
-        @error('publisher_year')
+        <label for="floatingInput">Jenis Kelamin</label>
+        <select class="custom-select @error('gender') is-invalid @enderror" id="inputGroupSelect01" name="gender">
+            <option @if ($member->gender == "Laki-Laki") selected @endif value="Laki-Laki">Laki-Laki</option>
+            <option @if ($member->gender == "Perempuan") selected @endif value="Perempuan">Perempuan</option>
+        </select>
+        @error('gender')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="floatingInput">Sampul</label><br>
-        <small>Pilih gambar jika ingin ingin di mengubah</small>
-        <input value="{{ $book->cover }}" type="file" class="form-control" id="floatingInput" placeholder="Cover" name="cover">
-        @if ($book->cover)
-        <img class="mt-3" width="100px" height="100px" src="{{ asset('storage/'.$book->cover) }}" alt="hello">
+        <label for="floatingInput">Foto</label>
+        <small>Pilih gambar jika ingin mengubah</small>
+        <input type="file" class="form-control" id="floatingInput"
+            placeholder="Foto" name="image" value="{{ $member->image }}">
+        @if ($member->image)
+            <img class="mt-3" width="100px" height="100px" src="{{ asset('storage/' .$member->image) }}" alt="scascs">
         @else
-        <p>Gambar tidak tersedia</p>
+        <p>Gmabr Tidak Tersedia</p>
         @endif
     </div>
     <button type="submit" class="btn btn-primary">
-        Pebarui
+        Perbarui
     </button>
 </form>
 @endsection
-
